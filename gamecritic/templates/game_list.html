@@ -1,0 +1,18 @@
+{% extends 'base.html'%}
+{%block content%}
+{% for game in games %}
+    <div class="list card">
+      <div class="card-header">
+        {{game.id}}
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Name: {{game.name}}</li>
+        <li class="list-group-item">Release date: {{game.release_date}}</li>
+        <li class="list-group-item">Developer: {{game.developer}}</li>
+        <li class="list-group-item">Publisher: {{game.publisher}}</li>
+        <li class="list-group-item">Genre(s): {{game.game_genre}}</li>
+        <li class="list-group-item">Description: {{game.description}}</li>
+      </ul>
+    </div>
+{% endfor %}
+{% endblock %}

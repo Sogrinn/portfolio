@@ -1,0 +1,12 @@
+.main {
+    margin: 0 auto;
+    width: 80%;
+}
+
+.list  {
+    margin: 0 auto;
+    width: 60%;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 20px;
+}
