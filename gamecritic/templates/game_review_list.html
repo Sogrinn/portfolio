@@ -10,6 +10,9 @@
         <li class="list-group-item">Publisher: {{game.publisher}}</li>
         <li class="list-group-item">Genre(s): {{game.game_genre}}</li>
         <li class="list-group-item">Description: {{game.description}}</li>
+        {% if user.is_authenticated %}
+          <li class="list-group-item"><a class="btn btn-dark" href="{% url 'add_review' game_id=game.id%}">Add review</a></li>
+        {% endif %}
       </ul>
     </div>
     <div class="row row-cols-1 row-cols-md-3 g-4">
