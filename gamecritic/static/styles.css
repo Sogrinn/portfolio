@@ -1,0 +1,33 @@
+.main {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.list  {
+    margin: 0 auto;
+    width: 60%;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+body {
+background-image: url('img/background.jpg')
+}
+
+.game-form{
+    color: white;
+}
+
+.game-form input, .game-form textarea {
+    margin: 10px auto;
+    width: 50%;
+    display: block;
+    border-radius: 10px;
+}
+
+.game-form label {
+    width: 50%;
+    margin: 0 auto;
+    display:block;
+}

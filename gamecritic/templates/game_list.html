@@ -3,15 +3,23 @@
 {% for game in games %}
     <div class="list card">
       <div class="card-header">
-        {{game.id}}
+        {{game.name}}
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">Name: {{game.name}}</li>
         <li class="list-group-item">Release date: {{game.release_date}}</li>
         <li class="list-group-item">Developer: {{game.developer}}</li>
         <li class="list-group-item">Publisher: {{game.publisher}}</li>
         <li class="list-group-item">Genre(s): {{game.game_genre}}</li>
         <li class="list-group-item">Description: {{game.description}}</li>
+        <li class="list-group-item">
+            <a class="btn btn-dark" href="{% url 'game_review_list' game_id=game.id%}" role="button">Reviews</a>
+            {% if user.is_authenticated %}
+                <a class="btn btn-dark" href="{% url 'add_review' game_id=game.id%}">Add review</a>
+                {% if user.is_superuser %}
+                    <a class="btn btn-dark" href="{% url 'edit_game' game_id=game.id%}" role="button">Edit game</a>
+                {% endif %}
+            {% endif %}
+        </li>
       </ul>
     </div>
 {% endfor %}

@@ -1,0 +1,39 @@
+{% extends 'base.html'%}
+{%block content%}
+    <div class="list card">
+      <div class="card-header">
+        {{game.name}}
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Release date: {{game.release_date}}</li>
+        <li class="list-group-item">Developer: {{game.developer}}</li>
+        <li class="list-group-item">Publisher: {{game.publisher}}</li>
+        <li class="list-group-item">Genre(s): {{game.game_genre}}</li>
+        <li class="list-group-item">Description: {{game.description}}</li>
+      </ul>
+    </div>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      {% for review in reviews %}
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{review.user}}</h5>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{review.text}}</li>
+                <li class="list-group-item">Score: {{review.rating}}</li>
+                <li class="list-group-item">
+                  {% if user.is_authenticated %}
+                    {% if review.user == user %}
+                      <a class="btn btn-dark" href="{% url 'delete_review' review_id=review.id%}">Delete review</a>
+                      <a class="btn btn-dark" href="{% url 'edit_review' review_id=review.id%}">Edit review</a>
+                    {% endif %}
+                  {% endif %}
+                </li>
+              </ul>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+{% endblock %}
