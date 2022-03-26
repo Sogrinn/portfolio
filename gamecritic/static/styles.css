@@ -12,7 +12,8 @@
 }
 
 body {
-background-image: url('img/background.jpg')
+    background-attachment: fixed;
+    background-image: url('img/background.jpg');
 }
 
 .game-form{

@@ -10,10 +10,15 @@ class Game(models.Model):
     publisher = models.CharField(max_length=255)
     game_genre = models.CharField(max_length=255)
     description = models.TextField(null=True, blank=True)
-    image = models.ImageField()
+    image = models.ImageField(upload_to='game_img', blank=True)
 
     def __str__(self):
         return self.name
+
+    @property
+    def image_url(self):
+        if self.image and hasattr(self.image, 'url'):
+            return self.image.url
 
 
 class Review(models.Model):

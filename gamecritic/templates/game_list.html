@@ -1,11 +1,15 @@
 {% extends 'base.html'%}
 {%block content%}
 {% for game in games %}
-    <div class="list card text-white bg-secondary mb-3">
-      <div class="card-header">
-        {{game.name}}
-      </div>
-      <ul class="list-group list-group-flush">
+<div class="card mb-3 text-white bg-secondary">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{game.image_url}}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{game.name}}</h5>
+        <ul class="list-group list-group-flush">
         <li class="list-group-item text-white bg-secondary">Release date: {{game.release_date}}</li>
         <li class="list-group-item text-white bg-secondary">Developer: {{game.developer}}</li>
         <li class="list-group-item text-white bg-secondary">Publisher: {{game.publisher}}</li>
@@ -21,6 +25,9 @@
             {% endif %}
         </li>
       </ul>
+      </div>
     </div>
+  </div>
+</div>
 {% endfor %}
 {% endblock %}

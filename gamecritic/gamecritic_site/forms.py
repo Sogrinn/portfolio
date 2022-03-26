@@ -9,10 +9,11 @@ class GameForm(forms.Form):
     publisher = forms.CharField(label='Publisher', max_length=255)
     game_genre = forms.CharField(label='Genre(s)', max_length=255)
     description = forms.CharField(label='Description', widget=forms.Textarea)
+    image = forms.ImageField()
 
 
 class LoginForm(forms.Form):
-    username = forms.CharField(label='Username')
+    username = forms.CharField(label='Login')
     password = forms.CharField(label="Password", widget=forms.PasswordInput)
 
 
