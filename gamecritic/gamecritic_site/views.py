@@ -52,7 +52,7 @@ def logout_user(request):
 
 def game_list(request):
     games = Game.objects.all()
-    return render(request, 'game_list.html', {'games': games})
+    return render(request, 'game_list1.html', {'games': games})
 
 
 def game_review_list(request, game_id):
