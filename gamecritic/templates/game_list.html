@@ -13,7 +13,6 @@
         <li class="list-group-item text-white bg-dark">Release date: {{game.release_date}}</li>
         <li class="list-group-item text-white bg-dark">Developer: {{game.developer}}</li>
         <li class="list-group-item text-white bg-dark">Publisher: {{game.publisher}}</li>
-
         <li class="list-group-item text-white bg-dark">Genre(s):
             {% for genre in game.game_genre.all %}
             {{genre}},
