@@ -1,13 +1,15 @@
 from django import forms
 from django.core.validators import MinValueValidator, MaxValueValidator
 
+from .models import Genre
+
 
 class GameForm(forms.Form):
     name = forms.CharField(label='Name', max_length=255)
     release_date = forms.DateField(label='Release date')
     developer = forms.CharField(label='Developer', max_length=255)
     publisher = forms.CharField(label='Publisher', max_length=255)
-    game_genre = forms.CharField(label='Genre(s)', max_length=255)
+    game_genre = forms.ModelMultipleChoiceField(Genre.objects.all())
     description = forms.CharField(label='Description', widget=forms.Textarea)
     image = forms.ImageField()
 

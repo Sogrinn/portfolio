@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 
 from .forms import RegisterForm, LoginForm, GameForm, ReviewForm
-from .models import Game, Review
+from .models import Game, Review, Genre
 
 
 def index(request):

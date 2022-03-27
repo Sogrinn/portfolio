@@ -3,12 +3,19 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 
 
+class Genre(models.Model):
+    genre = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.genre
+
+
 class Game(models.Model):
     name = models.CharField(max_length=255)
     release_date = models.DateField()
     developer = models.CharField(max_length=255)
     publisher = models.CharField(max_length=255)
-    game_genre = models.CharField(max_length=255)
+    game_genre = models.ManyToManyField(Genre)
     description = models.TextField(null=True, blank=True)
     image = models.ImageField(upload_to='game_img', blank=True)
 
