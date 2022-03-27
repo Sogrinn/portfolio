@@ -1,34 +1,41 @@
 {% extends 'base.html'%}
 {%block content%}
-    <div class="list card">
-      <div class="card-header">
-        {{game.name}}
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Release date: {{game.release_date}}</li>
-        <li class="list-group-item">Developer: {{game.developer}}</li>
-        <li class="list-group-item">Publisher: {{game.publisher}}</li>
-        <li class="list-group-item">Genre(s): {{game.game_genre}}</li>
-        <li class="list-group-item">Description: {{game.description}}</li>
-        {% if user.is_authenticated %}
-          <li class="list-group-item"><a class="btn btn-dark" href="{% url 'add_review' game_id=game.id%}">Add review</a></li>
-        {% endif %}
-      </ul>
+<div class="card mb-3 text-white bg-dark">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{game.image_url}}" class="img-fluid rounded-start" alt="...">
     </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{game.name}}</h5>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item text-white bg-dark">Release date: {{game.release_date}}</li>
+          <li class="list-group-item text-white bg-dark">Developer: {{game.developer}}</li>
+          <li class="list-group-item text-white bg-dark">Publisher: {{game.publisher}}</li>
+          <li class="list-group-item text-white bg-dark">Genre(s): {{game.game_genre}}</li>
+          <li class="list-group-item text-white bg-dark">Description: {{game.description}}</li>
+          {% if user.is_authenticated %}
+            <li class="list-group-item"><a class="btn btn-dark" href="{% url 'add_review' game_id=game.id%}">Add review</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
     <div class="row row-cols-1 row-cols-md-3 g-4">
       {% for review in reviews %}
       <div class="col">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">{{review.user}}</h5>
+        <div class="card text-white bg-secondary">
+          <div class="card-body text-white bg-secondary">
+            <h5 class="card-title text-white bg-secondary">{{review.user}}</h5>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item">{{review.text}}</li>
-                <li class="list-group-item">Score: {{review.rating}}</li>
-                <li class="list-group-item">
+                <li class="list-group-item text-white bg-secondary">{{review.text}}</li>
+                <li class="list-group-item text-white bg-secondary">Score: {{review.rating}}</li>
+                <li class="list-group-item text-white bg-secondary">
                   {% if user.is_authenticated %}
                     {% if review.user == user %}
-                      <a class="btn btn-dark" href="{% url 'delete_review' review_id=review.id%}">Delete review</a>
-                      <a class="btn btn-dark" href="{% url 'edit_review' review_id=review.id%}">Edit review</a>
+                      <a class="btn btn-light" href="{% url 'delete_review' review_id=review.id%}">Delete review</a>
+                      <a class="btn btn-light" href="{% url 'edit_review' review_id=review.id%}">Edit review</a>
                     {% endif %}
                   {% endif %}
                 </li>
