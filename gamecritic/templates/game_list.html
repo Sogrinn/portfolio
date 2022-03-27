@@ -13,7 +13,12 @@
         <li class="list-group-item text-white bg-dark">Release date: {{game.release_date}}</li>
         <li class="list-group-item text-white bg-dark">Developer: {{game.developer}}</li>
         <li class="list-group-item text-white bg-dark">Publisher: {{game.publisher}}</li>
-        <li class="list-group-item text-white bg-dark">Genre(s): {{game.game_genre}}</li>
+
+        <li class="list-group-item text-white bg-dark">Genre(s):
+            {% for genre in game.game_genre.all %}
+            {{genre}},
+            {% endfor %}
+        </li>
         <li class="list-group-item text-white bg-dark">Description: {{game.description}}</li>
         <li class="list-group-item text-white bg-dark">
             <a class="btn btn-light" href="{% url 'game_review_list' game_id=game.id%}" role="button">Reviews</a>

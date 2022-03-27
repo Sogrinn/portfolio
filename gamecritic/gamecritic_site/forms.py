@@ -9,7 +9,7 @@ class GameForm(forms.Form):
     release_date = forms.DateField(label='Release date')
     developer = forms.CharField(label='Developer', max_length=255)
     publisher = forms.CharField(label='Publisher', max_length=255)
-    game_genre = forms.ModelMultipleChoiceField(Genre.objects.all())
+    game_genre = forms.ModelMultipleChoiceField(queryset=Genre.objects.all())
     description = forms.CharField(label='Description', widget=forms.Textarea)
     image = forms.ImageField()
 
