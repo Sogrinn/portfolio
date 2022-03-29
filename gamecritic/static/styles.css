@@ -20,7 +20,7 @@ body {
     color: white;
 }
 
-.game-form input, .game-form textarea {
+.game-form input, .game-form textarea{
     margin: 10px auto;
     width: 50%;
     display: block;

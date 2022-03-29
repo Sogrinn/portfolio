@@ -74,9 +74,9 @@ def add_game(request):
 
 
 @login_required
-def edit_game(request, game_id):
+def edit_game(request, game_id):  # TODO: improve this
     if request.method == 'POST':
-        form = Game(request.POST)
+        form = GameForm(request.POST)
         if form.is_valid():
             game = get_object_or_404(Game, pk=game_id)
             game = form.cleaned_data
